@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-import {Wrapper} from './styleComponents';
+import { HeaderWrapper, RefreshButton, Wrapper } from "./styleComponents";
+import RefreshIcon from "@mui/icons-material/Refresh";
 const ROUTING_QUERY = gql`
   {
     nearest(
@@ -65,8 +66,12 @@ function App() {
   return (
     <div>
       <Wrapper>
-        <h2>Routing from Rautatieasema to Maria 01</h2>
-        <button onClick={() => refetch()}>Refresh</button>
+        <HeaderWrapper>
+          <h2>Routing from Rautatieasema to Maria 01</h2>
+          <RefreshButton onClick={() => refetch()}>
+            <RefreshIcon fontSize="large" />
+          </RefreshButton>
+        </HeaderWrapper>
       </Wrapper>
     </div>
   );
